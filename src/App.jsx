@@ -1,27 +1,22 @@
-import Navbar from './components/Navbar'
-import AnimatedBackground from './components/AnimatedBackground'
-import HeroSection from './sections/HeroSection'
-import AboutSection from './sections/AboutSection'
-import SkillsSection from './sections/SkillsSection'
-import ProjectsSection from './sections/ProjectsSection'
-import ExperienceSection from './sections/ExperienceSection'
-import ApproachSection from './sections/ApproachSection'
-import ContactSection from './sections/ContactSection'
+import { Suspense, lazy } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import PageLoader from './components/PageLoader'
+import SiteShell from './components/SiteShell'
+
+const PortfolioHome = lazy(() => import('./pages/PortfolioHome'))
+const BlogList = lazy(() => import('./blog/BlogList'))
+const BlogPost = lazy(() => import('./blog/BlogPost'))
 
 export default function App() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-background text-slate-100">
-      <AnimatedBackground />
-      <Navbar />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <ApproachSection />
-        <ContactSection />
-      </main>
-    </div>
+    <SiteShell>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<PortfolioHome />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+        </Routes>
+      </Suspense>
+    </SiteShell>
   )
 }
