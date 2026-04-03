@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 export default function HeroSection() {
@@ -14,14 +15,17 @@ export default function HeroSection() {
         <h1 className="mt-4 max-w-3xl bg-gradient-to-r from-white via-slate-100 to-indigo-200 bg-clip-text text-4xl font-extrabold text-transparent md:text-6xl">
           Subhash Jeewantha
         </h1>
-        <p className="mt-4 text-xl font-medium text-slate-100">Power Platform Developer</p>
+        <p className="mt-4 text-xl font-medium text-slate-100">Microsoft Power Platform Specialist</p>
         <p className="mt-6 max-w-3xl text-base leading-7 text-slate-300 md:text-lg">
-          Building scalable business solutions using Microsoft Power Platform and modern web technologies.
+          I design business systems that reduce operational friction, improve decision-making, and scale cleanly across teams using Microsoft Power Platform and modern web technologies.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <a href="#projects" className="rounded-lg bg-gradient-to-r from-indigo-500 to-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:opacity-90">
             View Projects
           </a>
+          <Link to="/blog" className="rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/40 hover:text-white">
+            Read Articles
+          </Link>
           <a href="#contact" className="rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/40 hover:text-white">
             Contact Me
           </a>
